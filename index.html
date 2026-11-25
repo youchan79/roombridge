@@ -41,10 +41,6 @@
   .nav__actions { justify-content: flex-end; }
   @media (max-width: 1023px) { .nav.is-open .lang-btn { width: 100%; height: 48px; font-size: var(--t-body); order: 2; } }
 
-  .cluster { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .cluster text { font-family: var(--font-text); fill: var(--ink); }
-  .cluster .lbl { font-size: 15px; font-weight: 500; }
-  .cluster .lbl-sm { font-size: 13px; fill: var(--muted); }
   @media (max-width: 639px) { .hero .ly-float { display: none; } }
 
   .compare { display: grid; }
@@ -84,7 +80,7 @@
 </head>
 <body>
 <!-- type: service (page type service, site-kind other)
-     deal: hero split (its picture is a still drawing of the room cluster: the client has no photographs yet),
+     deal: hero split (its picture: a Korean residential alley from Unsplash until the client has photographs of its own buildings),
      nav centre (nav-mega dealt first, re-dealt: no photograph for its menu card), close type, footer columns,
      rhythm surface-pairs, buttons solid, mark stack, palette cobalt-on-sand, type rethink -->
 <header class="nav nav--centre">
@@ -123,55 +119,7 @@
         </dl>
       </div>
       <div class="hero__media span-6 start-7">
-        <svg class="cluster" viewBox="0 0 628 716" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="cluster-t">
-          <title id="cluster-t" data-i18n="clusterAlt">Three apartment buildings inside a 150 metre circle, one room kept for the night manager</title>
-          <circle cx="314" cy="300" r="250" fill="none" stroke="currentColor" stroke-opacity=".28" stroke-width="1.5" stroke-dasharray="6 8" style="color: var(--ink)"/>
-          <line x1="314" y1="300" x2="98" y2="425" stroke="var(--ink)" stroke-opacity=".35" stroke-width="1.5"/>
-          <circle cx="314" cy="300" r="4" fill="var(--ink)"/>
-          <text class="lbl-sm" x="176" y="420" text-anchor="middle" transform="rotate(-30 176 420)">150 m</text>
-          <!-- legend: the night manager's room -->
-          <g transform="translate(40 40)">
-            <rect width="20" height="20" rx="3" fill="var(--bg)" stroke="var(--ink)" stroke-width="2"/>
-            <circle cx="10" cy="10" r="3.5" fill="var(--ink)"/>
-            <text class="lbl" x="32" y="15" data-i18n="bN">Night manager's room</text>
-          </g>
-          <!-- building A: 3 x 4 rooms -->
-          <g transform="translate(118 128)">
-            <rect width="132" height="176" rx="10" fill="var(--bg)" stroke="var(--ink)" stroke-opacity=".5"/>
-            <g fill="var(--ink)" fill-opacity=".85">
-              <rect x="18" y="20" width="24" height="24" rx="3"/><rect x="54" y="20" width="24" height="24" rx="3"/><rect x="90" y="20" width="24" height="24" rx="3"/>
-              <rect x="18" y="58" width="24" height="24" rx="3"/><rect x="54" y="58" width="24" height="24" rx="3"/><rect x="90" y="58" width="24" height="24" rx="3"/>
-              <rect x="18" y="96" width="24" height="24" rx="3"/><rect x="54" y="96" width="24" height="24" rx="3"/><rect x="90" y="96" width="24" height="24" rx="3"/>
-              <rect x="18" y="134" width="24" height="24" rx="3"/><rect x="54" y="134" width="24" height="24" rx="3"/><rect x="90" y="134" width="24" height="24" rx="3"/>
-            </g>
-            <text class="lbl" x="0" y="206" data-i18n="bA">Building A</text>
-          </g>
-          <!-- building B: 3 x 4 rooms, one kept for the night manager -->
-          <g transform="translate(356 104)">
-            <rect width="132" height="176" rx="10" fill="var(--bg)" stroke="var(--ink)" stroke-opacity=".5"/>
-            <g fill="var(--ink)" fill-opacity=".85">
-              <rect x="18" y="20" width="24" height="24" rx="3"/><rect x="54" y="20" width="24" height="24" rx="3"/><rect x="90" y="20" width="24" height="24" rx="3"/>
-              <rect x="18" y="58" width="24" height="24" rx="3"/><rect x="54" y="58" width="24" height="24" rx="3"/><rect x="90" y="58" width="24" height="24" rx="3"/>
-              <rect x="18" y="96" width="24" height="24" rx="3"/><rect x="54" y="96" width="24" height="24" rx="3"/><rect x="90" y="96" width="24" height="24" rx="3"/>
-              <rect x="54" y="134" width="24" height="24" rx="3"/><rect x="90" y="134" width="24" height="24" rx="3"/>
-            </g>
-            <rect x="18" y="134" width="24" height="24" rx="3" fill="var(--bg)" stroke="var(--ink)" stroke-width="2"/>
-            <circle cx="30" cy="146" r="4" fill="var(--ink)"/>
-            <text class="lbl" x="0" y="206" data-i18n="bB">Building B</text>
-          </g>
-          <!-- building C: 2 x 5 rooms -->
-          <g transform="translate(262 352)">
-            <rect width="96" height="214" rx="10" fill="var(--bg)" stroke="var(--ink)" stroke-opacity=".5"/>
-            <g fill="var(--ink)" fill-opacity=".85">
-              <rect x="18" y="20" width="24" height="24" rx="3"/><rect x="54" y="20" width="24" height="24" rx="3"/>
-              <rect x="18" y="58" width="24" height="24" rx="3"/><rect x="54" y="58" width="24" height="24" rx="3"/>
-              <rect x="18" y="96" width="24" height="24" rx="3"/><rect x="54" y="96" width="24" height="24" rx="3"/>
-              <rect x="18" y="134" width="24" height="24" rx="3"/><rect x="54" y="134" width="24" height="24" rx="3"/>
-              <rect x="18" y="172" width="24" height="24" rx="3"/><rect x="54" y="172" width="24" height="24" rx="3"/>
-            </g>
-            <text class="lbl" x="112" y="206" data-i18n="bC">Building C</text>
-          </g>
-        </svg>
+        <img src="assets/img/alley-1260.webp" srcset="assets/img/alley-640.webp 640w, assets/img/alley-1260.webp 1260w" sizes="(max-width: 1023px) 100vw, 50vw" width="1260" height="1901" alt="A quiet residential alley in Korea in winter sun, red brick low-rise buildings on one side and trees on the other" fetchpriority="high" decoding="async" data-source="library-unsplash" data-subject="a Korean residential alley" style="--ly-pos: 50% 58%" data-i18n-alt="heroAlt">
         <div class="ly-float">
           <div class="ly-float__row"><span class="ly-live" data-i18n="flt1">Night manager</span><span data-i18n="flt2">On site</span></div>
           <div class="ly-float__title" data-i18n="flt3">At your door within 30 minutes</div>
@@ -325,7 +273,7 @@
       <div class="footer__legal">
         <span>&copy; 2026 <span data-i18n="brand">RoomBridge</span> &nbsp; <a href="privacy.html" data-i18n="ftPrivacy">Privacy</a></span>
         <div class="socials"></div>
-        <a class="credits" href="credits.html" data-i18n="ftCredits">Photographs via Wikimedia Commons</a>
+        <a class="credits" href="credits.html" data-i18n="ftCredits">Photographs via Wikimedia Commons and Unsplash</a>
       </div>
     </div>
   </div>
@@ -340,8 +288,7 @@
     h1: '대구 옆 경산, 대학가 단체 숙소',
     lead: '봉사·교환·어학연수 단체를 위해 대학가 원룸을 준비해 드립니다. 단원들은 한 동네에 모여 지내며 방에서 직접 요리하고 빨래할 수 있고, 계약은 한 번이면 됩니다.',
     f1t: '방', f1d: '단체당 최대 30실', f2t: '거리', f2d: '모두 반경 150m 안', f3t: '기간', f3d: '4주 이상',
-    clusterAlt: '반경 150m 원 안에 원룸 건물 세 동이 있고, 그중 방 하나는 야간 관리자 방입니다',
-    bA: 'A동', bB: 'B동', bC: 'C동', bN: '야간 관리자 방',
+    heroAlt: '겨울 햇빛이 드는 한국 주택가 골목, 한쪽에 붉은 벽돌 건물과 다른 쪽에 나무',
     flt1: '야간 관리자', flt2: '상주', flt3: '30분 안에 방 앞까지 갑니다',
     incH: '계약 한 건에 들어 있는 것', incP: '방마다 주 단위 요금 하나, 이야기할 곳도 저희 한 곳입니다.',
     i1t: '1인 1실 원룸', i1d: '방마다 욕실, 작은 주방, 세탁기가 있습니다.',
@@ -370,7 +317,7 @@
     fConsent: '신청에 답하기 위해 위 정보를 룸브릿지가 쓰는 데 동의합니다. <a class="link" href="privacy.html">개인정보 처리방침</a>',
     clH: '다음 단체의 방, 경산에 준비해 드립니다', clP: '2영업일 안에 메일로 답해 드립니다.',
     ftLede: '외국인 봉사·연수 단체를 위한 한국 단체 숙소.', ftC1: '서비스', ftC2: '지역', ftC3: '신청', ftApply: '신청서',
-    ftPrivacy: '개인정보 처리방침', ftCredits: '사진 출처: Wikimedia Commons',
+    ftPrivacy: '개인정보 처리방침', ftCredits: '사진 출처: Wikimedia Commons, Unsplash',
     title: '룸브릿지: 대구 옆 경산 대학가, 외국인 봉사·연수 단체 숙소',
     sent: '신청이 접수됐습니다. 2영업일 안에 메일로 답해 드리겠습니다.',
     fail: '보내지 못했습니다. 잠시 뒤 다시 눌러 주세요.',
