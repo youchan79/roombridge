@@ -11,7 +11,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
 <style>
 :root {
   --p-bg: #e6dbc7; --p-surface: #ddd0b9; --p-ink: #062b8a; --p-muted: #3253a4;
@@ -36,14 +39,13 @@
   }
   .lang-btn:hover { background: color-mix(in oklab, var(--ink) 6%, transparent); }
   .nav__actions { justify-content: flex-end; }
-  @media (min-width: 1024px) { .lang-btn--m { display: none; } }
-  @media (max-width: 1023px) { .lang-btn--m { margin-left: auto; } .nav__toggle { margin-left: 0; } }
+  @media (max-width: 1023px) { .nav.is-open .lang-btn { width: 100%; height: 48px; font-size: var(--t-body); order: 2; } }
 
   .cluster { position: absolute; inset: 0; width: 100%; height: 100%; }
   .cluster text { font-family: var(--font-text); fill: var(--ink); }
   .cluster .lbl { font-size: 15px; font-weight: 500; }
   .cluster .lbl-sm { font-size: 13px; fill: var(--muted); }
-  @media (max-width: 639px) { .cluster .lbl { font-size: 22px; } .cluster .lbl-sm { font-size: 19px; } }
+  @media (max-width: 639px) { .hero .ly-float { display: none; } }
 
   .compare { display: grid; }
   .compare__row { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: center;
@@ -74,7 +76,9 @@
   .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   @media (max-width: 639px) { .form .btn-row .btn { width: 100%; } }
 
-  #included .frame, #location .frame { aspect-ratio: 4 / 5; }
+  #included .frame, #location .frame { aspect-ratio: 1 / 1; }
+  @media (min-width: 640px) and (max-width: 1023px) { #included { --h: 2 } }
+  @media (max-width: 379px) { html:lang(en) #location { --hm: 2 } }
   @media (max-width: 1023px) { #included .frame, #location .frame { aspect-ratio: 4 / 3; } }
 </style>
 </head>
@@ -95,7 +99,6 @@
       <button class="lang-btn" type="button" data-lang-toggle lang="ko">한국어</button>
       <a class="btn btn--primary" href="#apply" data-i18n="cta">Apply for housing</a>
     </div>
-    <button class="lang-btn lang-btn--m" type="button" data-lang-toggle lang="ko">한국어</button>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
       <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
     </button>
@@ -115,12 +118,12 @@
         </div>
         <dl class="hero-facts">
           <div><dt data-i18n="f1t">Rooms</dt><dd data-i18n="f1d">Up to 30 per group</dd></div>
-          <div><dt data-i18n="f2t">Distance</dt><dd data-i18n="f2d">All within 150&nbsp;m</dd></div>
+          <div><dt data-i18n="f2t">Distance</dt><dd data-i18n="f2d">All within 150 m</dd></div>
           <div><dt data-i18n="f3t">Stay</dt><dd data-i18n="f3d">4 weeks or longer</dd></div>
         </dl>
       </div>
       <div class="hero__media span-6 start-7">
-        <svg class="cluster" viewBox="0 0 628 716" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="cluster-t">
+        <svg class="cluster" viewBox="0 0 628 716" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="cluster-t">
           <title id="cluster-t" data-i18n="clusterAlt">Three apartment buildings inside a 150 metre circle, one room kept for the night manager</title>
           <circle cx="314" cy="300" r="250" fill="none" stroke="currentColor" stroke-opacity=".28" stroke-width="1.5" stroke-dasharray="6 8" style="color: var(--ink)"/>
           <line x1="314" y1="300" x2="98" y2="425" stroke="var(--ink)" stroke-opacity=".35" stroke-width="1.5"/>
@@ -177,29 +180,29 @@
     </div></div>
   </section>
 
-  <section class="section" id="included" aria-labelledby="included-h">
+  <section class="section" id="included" aria-labelledby="included-h" style="--hm: 2">
     <div class="wrap grid grid--top">
-      <div class="span-5">
+      <div class="span-6">
         <div class="section-head">
           <h2 id="included-h" data-i18n="incH">What one contract covers</h2>
-          <p data-i18n="incP">One weekly price per room. You deal with us, not with each landlord.</p>
+          <p data-i18n="incP">One weekly price per room, and one company to deal with.</p>
         </div>
         <ul class="rows">
-          <li><span class="rows__name" data-i18n="i1t">A private studio for each person</span><p data-i18n="i1d">Every room has its own bathroom, kitchenette and washing machine.</p></li>
-          <li><span class="rows__name" data-i18n="i2t">Bedding and a starter kit</span><p data-i18n="i2d">Sheets, towels and basics ready on arrival day, plus storage for luggage.</p></li>
-          <li><span class="rows__name" data-i18n="i3t">Cleaning before and after</span><p data-i18n="i3d">We prepare each room before you arrive and send a professional crew after you leave.</p></li>
-          <li><span class="rows__name" data-i18n="i4t">Utilities included</span><p data-i18n="i4d">Electricity, gas and water are in the price, even in a cold winter.</p></li>
-          <li><span class="rows__name" data-i18n="i5t">A manager who speaks English</span><p data-i18n="i5d">One room is kept for our night manager, who answers within 10 minutes.</p></li>
-          <li><span class="rows__name" data-i18n="i6t">Insurance and damage handled</span><p data-i18n="i6d">We carry liability insurance. If something breaks, we repair it and settle it with the owner.</p></li>
+          <li><span class="rows__name" data-i18n="i1t">A private studio for each person</span><p data-i18n="i1d">Each room has its own bathroom, kitchenette and washer.</p></li>
+          <li><span class="rows__name" data-i18n="i2t">Bedding and a starter kit</span><p data-i18n="i2d">Sheets, towels and basics ready on arrival day.</p></li>
+          <li><span class="rows__name" data-i18n="i3t">Cleaning before and after</span><p data-i18n="i3d">Rooms prepared before arrival, cleaned by a crew after.</p></li>
+          <li><span class="rows__name" data-i18n="i4t">Utilities included</span><p data-i18n="i4d">Electricity, gas and water, even in a cold winter.</p></li>
+          <li><span class="rows__name" data-i18n="i5t">A manager who speaks English</span><p data-i18n="i5d">On site every night, answers within 10 minutes.</p></li>
+          <li><span class="rows__name" data-i18n="i6t">Insurance and damage handled</span><p data-i18n="i6d">Liability insurance and repairs are on us.</p></li>
         </ul>
       </div>
       <div class="frame frame--photo span-6 start-7">
-        <img class="frame__img" src="assets/img/pillow-1280.jpg" srcset="assets/img/pillow-500.jpg 500w, assets/img/pillow-960.jpg 960w, assets/img/pillow-1280.jpg 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="853" alt="A striped linen pillow on a white bed, a wall lamp and window light behind" loading="lazy" decoding="async" data-source="library-057" data-subject="detail" style="object-position: 65% 55%" data-i18n-alt="photoAlt1">
+        <img class="frame__img" src="assets/img/photo-m61856012.webp" srcset="assets/img/photo-m61856012-500.webp 500w, assets/img/photo-m61856012-960.webp 960w, assets/img/photo-m61856012.webp 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="853" alt="A striped linen pillow on a white bed, a wall lamp and window light behind" loading="lazy" decoding="async" data-source="library-057" data-subject="detail" style="object-position: 65% 55%" data-i18n-alt="photoAlt1">
       </div>
     </div>
   </section>
 
-  <section class="section ground-surface" id="compare" aria-labelledby="compare-h">
+  <section class="section ground-surface" id="compare" aria-labelledby="compare-h" style="--hm: 2">
     <div class="wrap">
       <div class="section-head">
         <h2 id="compare-h" data-i18n="cmpH">Compared with motels and hotels</h2>
@@ -215,7 +218,7 @@
         </div>
         <div class="compare__row" role="row">
           <span role="rowheader" data-i18n="r1">30 rooms in one area</span>
-          <span role="cell" class="compare__us" data-col="RoomBridge" data-i18n="r1a">Yes, within 150&nbsp;m</span>
+          <span role="cell" class="compare__us" data-col="RoomBridge" data-i18n="r1a">Yes, within 150 m</span>
           <span role="cell" data-col="Motels" data-i18n="r1b">Rarely</span>
           <span role="cell" data-col="Business hotels" data-i18n="r1c">Yes</span>
           <span role="cell" data-col="Rental apps" data-i18n="r1d">Rarely</span>
@@ -254,24 +257,24 @@
 
   <section class="section" id="location" aria-labelledby="location-h">
     <div class="wrap grid grid--top">
-      <div class="span-5">
+      <div class="span-6">
         <div class="section-head">
           <h2 id="location-h" data-i18n="locH">In Gyeongsan, a university town next to Daegu</h2>
           <p data-i18n="locP">Your group lives in the student quarter by Yeungnam University, among cafés, shops and Korean students.</p>
         </div>
         <ul class="rows rows--spec">
           <li><span class="rows__name" data-i18n="l1t">Nearest metro</span><p data-i18n="l1d">Yeungnam Univ. Station, Daegu Metro Line 2</p></li>
-          <li><span class="rows__name" data-i18n="l2t">Your rooms</span><p data-i18n="l2d">Three buildings within 150&nbsp;m, picked for each group</p></li>
+          <li><span class="rows__name" data-i18n="l2t">Your rooms</span><p data-i18n="l2d">Three buildings within 150 m, picked for each group</p></li>
           <li><span class="rows__name" data-i18n="l3t">When we run</span><p data-i18n="l3d">Mainly the winter and summer breaks, when student rooms are free</p></li>
         </ul>
       </div>
       <div class="frame frame--photo span-6 start-7">
-        <img class="frame__img" src="assets/img/campus-1280.jpg" srcset="assets/img/campus-500.jpg 500w, assets/img/campus-960.jpg 960w, assets/img/campus-1280.jpg 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="960" alt="Pine and maple trees in autumn colour on the Yeungnam University campus" loading="lazy" decoding="async" data-source="library-commons" data-subject="the neighbourhood" style="object-position: 55% 50%" data-i18n-alt="photoAlt2">
+        <img class="frame__img" src="assets/img/campus-1280.webp" srcset="assets/img/campus-640.webp 640w, assets/img/campus-1280.webp 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="960" alt="Pine and maple trees in autumn colour on the Yeungnam University campus" loading="lazy" decoding="async" data-source="library-commons" data-subject="the neighbourhood" style="object-position: 55% 50%" data-i18n-alt="photoAlt2">
       </div>
     </div>
   </section>
 
-  <section class="section" id="apply" aria-labelledby="apply-h">
+  <section class="section" id="apply" aria-labelledby="apply-h" style="--hm: 2">
     <div class="wrap grid grid--top">
       <div class="span-5">
         <div class="section-head">
@@ -340,13 +343,13 @@
     clusterAlt: '반경 150m 원 안에 원룸 건물 세 동이 있고, 그중 방 하나는 야간 관리자 방입니다',
     bA: 'A동', bB: 'B동', bC: 'C동', bN: '야간 관리자 방',
     flt1: '야간 관리자', flt2: '상주', flt3: '30분 안에 방 앞까지 갑니다',
-    incH: '계약 한 건에 들어 있는 것', incP: '방마다 주 단위 요금 하나로 끝납니다. 건물주를 한 명씩 만날 필요 없이 저희와만 이야기하시면 됩니다.',
+    incH: '계약 한 건에 들어 있는 것', incP: '방마다 주 단위 요금 하나, 이야기할 곳도 저희 한 곳입니다.',
     i1t: '1인 1실 원룸', i1d: '방마다 욕실, 작은 주방, 세탁기가 있습니다.',
-    i2t: '침구와 생활 키트', i2d: '입주 날 침구, 수건, 생활용품을 준비해 두고 짐 보관함도 드립니다.',
-    i3t: '입주 전·퇴거 후 청소', i3d: '입주 전에 방을 준비하고, 퇴거 뒤에는 전문 업체가 청소합니다.',
-    i4t: '공과금 포함', i4d: '전기, 가스, 수도 요금이 요금에 들어 있습니다. 추운 겨울에도 따로 받지 않습니다.',
-    i5t: '영어가 되는 관리자', i5d: '방 하나를 야간 관리자 방으로 두고, 연락하면 10분 안에 답합니다.',
-    i6t: '보험과 파손 처리', i6d: '배상책임보험은 저희가 듭니다. 무엇이 망가지면 저희가 고치고 건물주와 정리합니다.',
+    i2t: '침구와 생활 키트', i2d: '입주 날 침구, 수건, 생활용품을 준비해 둡니다.',
+    i3t: '입주 전·퇴거 후 청소', i3d: '입주 전에 준비하고, 퇴거 뒤엔 전문 업체가 청소합니다.',
+    i4t: '공과금 포함', i4d: '전기, 가스, 수도 요금. 추운 겨울에도 따로 받지 않습니다.',
+    i5t: '영어가 되는 관리자', i5d: '매일 밤 상주하고, 연락하면 10분 안에 답합니다.',
+    i6t: '보험과 파손 처리', i6d: '배상책임보험과 수리는 저희가 맡습니다.',
     photoAlt1: '창가 빛이 드는 흰 침대 위 줄무늬 리넨 베개',
     cmpH: '모텔·호텔과 비교', cmpP: '30명이 6주 동안 머무는 단체를 기준으로 비교했습니다.',
     c0: '룸브릿지', c1: '모텔', c2: '비즈니스호텔', c3: '단기임대 앱',
@@ -421,8 +424,7 @@
   fillCountries('en');
   if (start === 'ko') setLang('ko');
 
-  /* the application form: FormSubmit delivers each application to the inbox below as an email.
-     The first submission sends an "Activate Form" email there; nothing is delivered until it is clicked. */
+  /* the application form: posts to FORM_ENDPOINT (set when the site goes live) */
   const FORM_ENDPOINT = 'https://formsubmit.co/ajax/shinyouchan0628@gmail.com';
   const form = document.getElementById('apply-form');
   const status = form.querySelector('.form__status');
@@ -440,11 +442,9 @@
     try {
       if (!FORM_ENDPOINT) throw new Error('no endpoint yet');
       const res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ ...data, _subject: 'RoomBridge application: ' + data.organization, _template: 'table', _captcha: 'false' }) });
-      if (!res.ok) throw new Error(res.status);
-      /* FormSubmit answers 200 even when it did not deliver (e.g. before activation): trust only success: "true" */
-      const reply = await res.json().catch(() => ({}));
-      if (String(reply.success) !== 'true') throw new Error(reply.message || 'not delivered');
+        body: JSON.stringify({ ...data, _subject: 'RoomBridge application: ' + data.organization, _template: 'table', _replyto: data.email }) });
+      const out = await res.json().catch(() => ({}));
+      if (!res.ok || String(out.success) !== 'true') throw new Error(out.message || res.status);
       form.reset(); status.dataset.state = 'sent'; status.textContent = msg('sent');
     } catch (err) {
       console.warn('apply form:', err.message);
@@ -453,6 +453,8 @@
   });
 })();
 </script>
-<script src="assets/site.js"></script>
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
+<script type="module" src="assets/layout/layout.js"></script>
 </body>
 </html>
